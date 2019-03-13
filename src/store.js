@@ -90,7 +90,7 @@ export default new Vuex.Store({
     getAllAction: ({ commit }) => {
        let token = JSON.parse(localStorage.getItem('user')).access_token
       axios
-        .get(`${process.env.API_BASE_URL}api/product/get/all`, {headers: {'Authorization': 'bearer' + token}})
+        .get(`${process.env.API_BASE_URL}api/product/all`, {headers: {'Authorization': 'bearer' + token}})
         .then(r => r.data)
         .then(products => {
           commit('SET_PRODUCTS', products)
@@ -105,7 +105,7 @@ export default new Vuex.Store({
     getNotebooksAction: ({ commit }) => {
       let token = JSON.parse(localStorage.getItem('user')).access_token;
       axios
-        .get(`${process.env.API_BASE_URL}api/product/get/all/notebook`, {headers: {'Authorization': 'bearer' + token}})
+        .get(`${process.env.API_BASE_URL}api/product/all/notebook`, {headers: {'Authorization': 'bearer' + token}})
         .then(r => r.data)
         .then(products => {
           commit('SET_NOTEBOOKS', products)
@@ -121,7 +121,7 @@ export default new Vuex.Store({
     getSmartphonesAction: ({ commit }) => {
       let token = JSON.parse(localStorage.getItem('user')).access_token;
       axios
-        .get(`${process.env.API_BASE_URL}api/product/get/all/smartphone`, {headers: {'Authorization': 'bearer' + token}})
+        .get(`${process.env.API_BASE_URL}api/product/all/smartphone`, {headers: {'Authorization': 'bearer' + token}})
         .then(r => r.data)
         .then(products => {
           commit('SET_SMARTPHONES', products)
@@ -142,7 +142,7 @@ export default new Vuex.Store({
     currentProductAction: ({ commit }, productId) => {
       let token = JSON.parse(localStorage.getItem('user')).access_token;
       axios
-        .get(`${process.env.API_BASE_URL}api/product/get/${productId}`, {headers: {'Authorization': 'bearer' + token}})
+        .get(`${process.env.API_BASE_URL}api/product/${productId}`, {headers: {'Authorization': 'bearer' + token}})
         .then(r => r.data)
         .then(product => {
           commit('CURRENT_PRODUCT', product)
